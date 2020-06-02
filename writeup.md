@@ -62,8 +62,4 @@ A possible improvement would be to add an other form of checking whether the seg
 
 Another potential improvement could be to add some filters to improve the edge detection when the lightening conditions are poor.
 
-### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
