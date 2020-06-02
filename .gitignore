@@ -2,9 +2,8 @@ sources/
 .ipynb_checkpoints/
 P1.ipynb
 examples/
-test_images/
-test_videos/
-test_images_output/
-test_videos_output/
+test_images/*
+test_videos/*
+test_videos_output/*
 P1_finding_lane_lines2.ipynb
 P1_finding_lane_lines3.ipynb
