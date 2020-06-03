@@ -13,13 +13,12 @@
 
 ---
 
-### Reflection
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+### 1. Finding Lane Lines:
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I applied a gaussian filter to smooth the image. The next step was to use canny edge detection to detect all the edges in the image, then I applied a mask to get an image with edges only in the region of intrest. After that I applied Hough to that image and drew the found lines into an empty image. Adding that image to the original image resulted in an image where the segments of the lane lines have been annotated.
+My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I applied a gaussian filter to smooth the image. The next step was to use canny edge detection to detect all the edges in the image, then I applied a mask to get an image with edges only in the region of interest. After that I applied Hough to that image and drew the found lines into an empty image. Adding that image to the original image resulted in an image where segments of the lane lines have been annotated.
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by considering the slope of each line segment detected using the Hough method. If the slope is positive, the segment considered as a part of the left lane. If the slope is negative, the segment is considered as a part of the right lane. For each lane line two arrays where defined in order to store the coordinates of every pair of points specifying a segment. Using numpy's polyfit method with all the points stored for each line, the slope and zero-intercept of the image where determined. The last step was defining the beginning and ending height (y-coordinates) of the lane lines. We know that they need to start at the bottom  and stop somewhere in the middle of the image. Knowing the y-coordinates we can use the equation of the fitted line : \\ 
+In order to draw a single line on the left and right lanes, I modified the draw_lines() function by considering the slope of each line segment detected using the Hough method. If the slope is positive, the segment is considered as a part of the left lane. If the slope is negative, the segment is considered as a part of the right lane. For each lane line two arrays where defined in order to store the coordinates of every pair of points specifying a segment. Using numpy's polyfit method with all the points stored for each line, the slope and zero-intercept of the line where determined. The last step was defining the beginning and ending height (y-coordinates) of the lane lines. We know that they need to start at the bottom  and stop somewhere in the middle of the image. Knowing the y-coordinates we can use the equation of the fitted line :  
 $y = a*x + b$ 
 to calculate x: 
 $x = (y - b) / a$
